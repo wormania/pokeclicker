@@ -52,51 +52,38 @@ class ExternalHelper {
         if (requirements instanceof Requirement) {
             requirements = [requirements];
         }
+        return requirements.some(r => ExternalHelper.isDevRequirement(r));
+    }
 
+    private static isDevRequirement(requirement: Requirement) {
         let containsDevRequirement = false;
-        requirements.forEach((r) => {
-            if (r instanceof DevelopmentRequirement) {
-                containsDevRequirement = true;
-            } else if (r instanceof QuestLineCompletedRequirement) {
-                containsDevRequirement = ExternalHelper.isInLiveVersion(r.cachedQuest);
-            } else if (r instanceof QuestLineStartedRequirement) {
-                containsDevRequirement = ExternalHelper.isInLiveVersion(r.cachedQuest);
-            } else if (r instanceof QuestLineStepCompletedRequirement) {
-                containsDevRequirement = ExternalHelper.isInLiveVersion(r.cachedQuest);
-            } else if (r instanceof TemporaryBattleRequirement) {
-                containsDevRequirement = ExternalHelper.isInLiveVersion(TemporaryBattleList[r.battleName]);
-            } else if (r instanceof RouteKillRequirement) {
-                containsDevRequirement = ExternalHelper.isInLiveVersion(Routes.getRoute(r.region, r.route));
-            } else if (r instanceof ClearGymRequirement) {
-                containsDevRequirement = ExternalHelper.isInLiveVersion(Object.values(GymList).find(g => GameConstants.getGymIndex(g.town) == r.gymIndex));
-            } else if (r instanceof MaxRegionRequirement) {
-                containsDevRequirement = r.requiredValue > GameConstants.MAX_AVAILABLE_REGION;
-            } else if (r instanceof ObtainedPokemonRequirement) {
-                containsDevRequirement = ExternalHelper.pokemonIsInLiveVersion(r.pokemon);
-            } else if (r instanceof PokemonLevelRequirement) {
-                containsDevRequirement = ExternalHelper.pokemonIsInLiveVersion(r.pokemon);
-            } else if (r instanceof StarterRequirement) {
-                containsDevRequirement = r.region > GameConstants.MAX_AVAILABLE_REGION;
-            } else if (r instanceof MultiRequirement) {
-                r.requirements.forEach(r2 => {
-                    if (!containsDevRequirement) {
-                        containsDevRequirement = ExternalHelper.containsDevRequirement(r2);
-                    }
-                });
-            } else if (r instanceof OneFromManyRequirement) {
-                let containsNonDevRequirement = false;
-                r.requirements.forEach(r2 => {
-                    if (!containsNonDevRequirement) {
-                        containsNonDevRequirement = !ExternalHelper.containsDevRequirement(r2);
-                    }
-                    containsDevRequirement = !containsNonDevRequirement;
-                });
-            }
-
-            if (containsDevRequirement) {
-                return false;
-            }
-        });
+        if (requirement instanceof DevelopmentRequirement) {
+            containsDevRequirement = true;
+        } else if (requirement instanceof QuestLineCompletedRequirement) {
+            containsDevRequirement = !ExternalHelper.isInLiveVersion(requirement.cachedQuest);
+        } else if (requirement instanceof QuestLineStartedRequirement) {
+            containsDevRequirement = !ExternalHelper.isInLiveVersion(requirement.cachedQuest);
+        } else if (requirement instanceof QuestLineStepCompletedRequirement) {
+            containsDevRequirement = !ExternalHelper.isInLiveVersion(requirement.cachedQuest);
+        } else if (requirement instanceof TemporaryBattleRequirement) {
+            containsDevRequirement = !ExternalHelper.isInLiveVersion(TemporaryBattleList[requirement.battleName]);
+        } else if (requirement instanceof RouteKillRequirement) {
+            containsDevRequirement = !ExternalHelper.isInLiveVersion(Routes.getRoute(requirement.region, requirement.route));
+        } else if (requirement instanceof ClearGymRequirement) {
+            containsDevRequirement = !ExternalHelper.isInLiveVersion(Object.values(GymList).find(g => GameConstants.getGymIndex(g.town) == requirement.gymIndex));
+        } else if (requirement instanceof MaxRegionRequirement) {
+            containsDevRequirement = requirement.requiredValue > GameConstants.MAX_AVAILABLE_REGION;
+        } else if (requirement instanceof ObtainedPokemonRequirement) {
+            containsDevRequirement = !ExternalHelper.pokemonIsInLiveVersion(requirement.pokemon);
+        } else if (requirement instanceof PokemonLevelRequirement) {
+            containsDevRequirement = !ExternalHelper.pokemonIsInLiveVersion(requirement.pokemon);
+        } else if (requirement instanceof StarterRequirement) {
+            containsDevRequirement = requirement.region > GameConstants.MAX_AVAILABLE_REGION;
+        } else if (requirement instanceof MultiRequirement) {
+            containsDevRequirement = ExternalHelper.containsDevRequirement(requirement.requirements);
+        } else if (requirement instanceof OneFromManyRequirement) {
+            containsDevRequirement = requirement.requirements.every(r => ExternalHelper.isDevRequirement(r));
+        }
         return containsDevRequirement;
     }
 
