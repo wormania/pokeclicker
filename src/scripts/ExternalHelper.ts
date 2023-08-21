@@ -69,8 +69,12 @@ class ExternalHelper {
             containsDevRequirement = !ExternalHelper.isInLiveVersion(TemporaryBattleList[requirement.battleName]);
         } else if (requirement instanceof RouteKillRequirement) {
             containsDevRequirement = !ExternalHelper.isInLiveVersion(Routes.getRoute(requirement.region, requirement.route));
+        } else if (requirement instanceof ClearDungeonRequirement) {
+            containsDevRequirement = !ExternalHelper.isInLiveVersion(Object.values(TownList).find(d => d.name == GameConstants.RegionDungeons.flat()[requirement.dungeonIndex]));
         } else if (requirement instanceof ClearGymRequirement) {
             containsDevRequirement = !ExternalHelper.isInLiveVersion(Object.values(GymList).find(g => GameConstants.getGymIndex(g.town) == requirement.gymIndex));
+        } else if (requirement instanceof GymBadgeRequirement) {
+            containsDevRequirement = !ExternalHelper.isInLiveVersion(Object.values(GymList).find(g => g.badgeReward == requirement.badge));
         } else if (requirement instanceof MaxRegionRequirement) {
             containsDevRequirement = requirement.requiredValue > GameConstants.MAX_AVAILABLE_REGION;
         } else if (requirement instanceof ObtainedPokemonRequirement) {
