@@ -100,6 +100,8 @@ class GameController {
         $purifyChamberModal.on('hidden.bs.modal shown.bs.modal', _ => $purifyChamberModal.data('disable-toggle', false));
         // Ship
         const $shipModal = $('#ShipModal');
+        // Route Info
+        const $routeInfoModal = $('#routeInfoModal');
         // Modal Collapse
         $(GameConstants.ModalCollapseList).map(function() {
             const id = `#${this}`;
@@ -296,10 +298,9 @@ class GameController {
                 }
             }
 
-            // Only run if no modals are open
-            if (visibleModals === 0) {
-                // Route Battles
-                if (App.game.gameState === GameConstants.GameState.fighting && !GameController.keyHeld.Control?.()) {
+            // Route Battles
+            if (App.game.gameState === GameConstants.GameState.fighting && !GameController.keyHeld.Control?.()) {
+                if (visibleModals === 0 || $routeInfoModal.data('bs.modal')?._isShown) {
                     const cycle = Routes.getRoutesByRegion(player.region).filter(r => r.isUnlocked()).map(r => r.number);
                     if (cycle.length > 1) {
                         const idx = cycle.findIndex(r => r == player.route);
@@ -313,7 +314,10 @@ class GameController {
                         }
                     }
                 }
+            }
 
+            // Only run if no modals are open
+            if (visibleModals === 0) {
                 // Dungeons
                 if (App.game.gameState === GameConstants.GameState.dungeon) {
                     switch (key) {
