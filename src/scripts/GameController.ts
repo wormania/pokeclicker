@@ -102,6 +102,8 @@ class GameController {
         const $shipModal = $('#ShipModal');
         // Route Info
         const $routeInfoModal = $('#routeInfoModal');
+        // Dungeon Info
+        const $dungeonInfoModal = $('#dungeonInfoModal');
         // Modal Collapse
         $(GameConstants.ModalCollapseList).map(function() {
             const id = `#${this}`;
@@ -316,6 +318,21 @@ class GameController {
                 }
             }
 
+            // Dungeon Navigation
+            if (App.game.gameState === GameConstants.GameState.town && player.town instanceof DungeonTown && !GameController.keyHeld.Control?.()) {
+                if (visibleModals === 0 || $dungeonInfoModal.data('bs.modal')?._isShown) {
+                    const cycle = Object.values(TownList).filter(t => t instanceof DungeonTown && t.region == player.region && t.isUnlocked());
+                    const idx = cycle.findIndex(d => d.name == player.town.name);
+                    switch (key) {
+                        case '=' :
+                        case '+' : MapHelper.moveToTown(cycle[(idx + 1) % cycle.length].name);
+                            return e.preventDefault();
+                        case '-' : MapHelper.moveToTown(cycle[(idx + cycle.length - 1) % cycle.length].name);
+                            return e.preventDefault();
+                    }
+                }
+            }
+
             // Only run if no modals are open
             if (visibleModals === 0) {
                 // Dungeons
@@ -363,16 +380,6 @@ class GameController {
                             NPCController.openDialog(filteredNPCs[numberKey - filteredContent.length]);
                         }
                         return e.preventDefault();
-                    } else if (player.town instanceof DungeonTown && !GameController.keyHeld.Control?.()) {
-                        const cycle = Object.values(TownList).filter(t => t instanceof DungeonTown && t.region == player.region && t.isUnlocked());
-                        const idx = cycle.findIndex(d => d.name == player.town.name);
-                        switch (key) {
-                            case '=' :
-                            case '+' : MapHelper.moveToTown(cycle[(idx + 1) % cycle.length].name);
-                                return e.preventDefault();
-                            case '-' : MapHelper.moveToTown(cycle[(idx + cycle.length - 1) % cycle.length].name);
-                                return e.preventDefault();
-                        }
                     }
                 }
             }
