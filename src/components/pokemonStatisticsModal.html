@@ -84,8 +84,12 @@
                   </td>
                 </tr>
                 <!-- /ko -->
-                <tr>
-                  <td class="text-left">Catch Rate</td>
+                <tr data-bind="tooltip: {
+                    title: `Catch Rate: ${pokemonMap[$data].catchRate}`,
+                    placement: 'top',
+                    trigger: 'hover',
+                }">
+                  <td class="text-left">Catch Chance</td>
                   <td class="text-left tight"><code
                       data-bind="text: PokemonFactory.catchRateHelper(pokemonMap[$data].catchRate, true) + '%'">-</code>
                   </td>

@@ -343,7 +343,7 @@ class AchievementHandler {
         AchievementHandler.addAchievement('The Greatest Collection of All Time', 'Obtain 100,000 Great Balls.', new PokeballRequirement(100000, GameConstants.Pokeball.Greatball), 0.30);
 
         AchievementHandler.addAchievement('They Made One Even Better?', 'Obtain your first Ultra Ball.', new PokeballRequirement(1, GameConstants.Pokeball.Ultraball), 0.05);
-        AchievementHandler.addAchievement('Let\'s See How High the Catch Rate Becomes', 'Obtain 10 Ultra Balls.', new PokeballRequirement(10, GameConstants.Pokeball.Ultraball), 0.10);
+        AchievementHandler.addAchievement('Let\'s See How High the Catch Chance Becomes', 'Obtain 10 Ultra Balls.', new PokeballRequirement(10, GameConstants.Pokeball.Ultraball), 0.10);
         AchievementHandler.addAchievement('This Should Be Enough for Those Elusive Roamers...', 'Obtain 100 Ultra Balls.', new PokeballRequirement(100, GameConstants.Pokeball.Ultraball), 0.15);
         AchievementHandler.addAchievement('They Don\'t Work on Ultra Beasts? That\'s False Advertising!', 'Obtain 1,000 Ultra Balls.', new PokeballRequirement(1000, GameConstants.Pokeball.Ultraball), 0.20);
         AchievementHandler.addAchievement('I Don\'t Think I\'ll Ever Be Able To Go Back to the Commoner\'s Great Ball', 'Obtain 10,000 Ultra Balls.', new PokeballRequirement(10000, GameConstants.Pokeball.Ultraball), 0.30);
