@@ -195,6 +195,7 @@ Settings.add(new Setting<string>('playerSafariSprite', 'Player safari sprite',
         new SettingOption('Female', 'female'),
     ],
     'male'));
+Settings.add(new BooleanSetting('hideCompletedQuestLineTasks', 'Hide completed quest line step tasks', false));
 
 // CSS variable settings
 Settings.add(new CssVariableSetting('locked', 'Locked Location', [], '#000000'));
