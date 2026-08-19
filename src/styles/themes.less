@@ -58,6 +58,20 @@
   }
 }
 
+/* Fixes text-success on .bg-secondary being unreadable for theme specific colour themes */
+.flatly, .journal, .litera, .solar, .spacelab, .united {
+  .bg-secondary .text-success {
+    color: #1a6e2d !important;
+  }
+}
+
+/* Fixes unreadable text due to identical colors for .bg-secondary */
+.cosmo, .solar {
+  .bg-secondary {
+    color: #fff;
+  }
+}
+
 /* Individual themes */
 .cerulean {
   /* Evolution items */
