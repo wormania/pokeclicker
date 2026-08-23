@@ -90,6 +90,15 @@ export default class Setting<T, TOption = T> {
         return false;
     }
 
+    isDefault(): boolean {
+        const value: T = this.observableValue();
+        const defaultValue: T = this.defaultValue;
+        if (Array.isArray(value) && Array.isArray(defaultValue)) {
+            return value.length === defaultValue.length && value.every((v, i) => v === defaultValue[i]);
+        }
+        return value === defaultValue;
+    }
+
     isSelected(value: T): KnockoutComputed<boolean> {
         return ko.pureComputed(() => (this._observable() === value), this);
     }
