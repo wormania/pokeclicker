@@ -511,7 +511,7 @@ const LavenderChanneler = new NPC('Channeler Karina', [
 
 const LavenderShopper = new NPC('Shopper', [
     'I always seem to run out of Great Balls. Luckly this shop always have them in stock!',
-    'They even have an offer today! They give you free Great Balls if you give them the code <b>THE-GREATEST-POKEBALL</b>',
+    'They even have an offer today! They give you free Great Balls if you give them the code <code class="text-nowrap">THE-GREATEST-POKEBALL</code>',
 ]);
 
 const BigSpender = new NPC('Big Spender', [
@@ -892,14 +892,13 @@ const BugCatcherPinsir = new NPC('Bug Catcher Michel', [
 
 const CandyMan = new NPC('The Candy Man', [
     'I sure do love candy. The rarer, the better!',
-    'I\'ve got a real <b>SWEET-TOOTH</b>',
+    'I\'ve got a real <code class="text-nowrap">SWEET-TOOTH</code>',
 ]);
 
 const SpeedyRunner = new NPC('Speedy Runner', [
     'I don\'t have time to listen to people explain stuff I already know.',
-    'Some old man tried to teach me how to catch Pokémon earlier. I just shouted',
-    '<b>HOW-BLU-COIN?</b>',
-    'at him and left.',
+    'Some old man tried to teach me how to catch Pokémon earlier.',
+    'I just shouted <code class="text-nowrap">HOW-BLU-COIN?</code> at him and left.',
 ], {image: 'assets/images/npcs/Jogger.png'});
 
 const UnrivaledBlue = new NPC('Blue', [
@@ -1641,7 +1640,7 @@ const VioletPrimo = new NPC('Primo', [
     'Once you have obtained a Held Item, visit your Item Bag. They are most often found in Dungeons, but some, like the Wonder Chest, are for sale!',
     'From there, go into your Held Items pocket and once an item is selected, you can use it by choosing from the list of available Pokémon to hold it.',
     'Choose who you select carefully! Once you remove a Held Item from your Pokémon, the item will break!',
-    'All righty, be seeing you and your <b>NEW-COLLECTION</b>!',
+    'All righty, be seeing you and your <code class="text-nowrap">NEW-COLLECTION</code>!',
 ]);
 
 
@@ -2755,7 +2754,7 @@ const Television2 = new NPC('Watch More Television', [
 const TicketClaim = new NPC('Contest Attendant', [
     'Thank you for reserving your Eon Ticket!',
     'To claim the ticket, all you have to do is go to your Start Menu, select "Save / Enter Code", and enter the following code in the "Enter Code..." box:',
-    'EON-TICKET',
+    '<code class="text-nowrap">EON-TICKET</code>',
 ],  {requirement: new MultiRequirement([new QuestLineStepCompletedRequirement('The Eon Duo', 1), new QuestLineStepCompletedRequirement('The Eon Duo', 3, GameConstants.AchievementOption.less)]),
 });
 
@@ -4372,7 +4371,7 @@ const SnowpointYoungGirl = new NPC('Young Girl', [
 
 const MindyFriend = new NPC('Mindy\'s Friend', [
     'I recently traded with my friend Mindy expecting to get a Gengar. Instead, her Haunter came with this useless rock! I can\'t believe she would do this to me!',
-    'Here, you can have <b>MINDY\'S-GIFT</b> for all I care! I pity whoever decides to trade with her in the future.',
+    'Here, you can have <code class="text-nowrap">MINDY\'S-GIFT</code> for all I care! I pity whoever decides to trade with her in the future.',
 ]);
 
 const AcuityUxie = new NPC('Uxie', [
@@ -5344,7 +5343,7 @@ const DreamResearcher2 = new NPC('Dream Researcher', [
 const VitaminRefundCode = new NPC('Pokémon Breeder', [
     'I used to have my Pokémon maxed out on Protein, but then I found out about the new Vitamins!',
     'I swapped out some of my Proteins for the new Vitamins, but then I was left with a bunch of extra Protein I couldn\'t use.',
-    'Luckily I was able to use the code REFUND-VITAMINS to get my money back! Too bad it only has one use though...',
+    'Luckily I was able to use the code <code class="text-nowrap">REFUND-VITAMINS</code> to get my money back! Too bad it only has one use though...',
     'It will also only refund Vitamins you bought after hitting the price cap.',
 ]);
 
@@ -6273,7 +6272,7 @@ const CoumarineBirdwatcher = new NPC('Birdwatcher', [
 const CoumarineElectricTrainer = new NPC('Electric Trainer', [
     'My Ampharos has gotten a boost since a friendly soul gave me an Ampharosite!',
     'Luckily my Ampharos was already strong enough to use it!',
-    'If you find that fella, tell him the code <b>DO-MAGEARNA-DREAM-OF-MAREEP?</b> and he might help you too!',
+    'If you find that fella, tell him the code <code class="text-nowrap">DO-MAGEARNA-DREAM-OF-MAREEP?</code> and he might help you too!',
 ]);
 
 const Diantha1 = new NPC('Diantha', [
