@@ -370,7 +370,7 @@ const Route3CenterHint = new NPC('Gentleman', [
     'I say, the trek from here to Cerulean City can be a tiring one.',
     'If it wasn\'t for the Pokémon Center outside Mt. Moon, I don\'t think I\'d ever make it!',
     '...What\'s that? You\'ve never seen a Pokémon Center there?',
-    'Hmm, It is somewhat out of the way. Maybe if you look closer?',
+    'Hmm, it is somewhat out of the way. Maybe if you look closer?',
 ], {
     image: 'assets/images/npcs/Gentleman.png',
     requirement: new ClearDungeonRequirement(1, GameConstants.getDungeonIndex('Mt. Moon')),
@@ -1641,7 +1641,7 @@ const VioletPrimo = new NPC('Primo', [
     'Once you have obtained a Held Item, visit your Item Bag. They are most often found in Dungeons, but some, like the Wonder Chest, are for sale!',
     'From there, go into your Held Items pocket and once an item is selected, you can use it by choosing from the list of available Pokémon to hold it.',
     'Choose who you select carefully! Once you remove a Held Item from your Pokémon, the item will break!',
-    'All righty, be seeing you and your <b>NEW‑COLLECTION</b>!',
+    'All righty, be seeing you and your <b>NEW-COLLECTION</b>!',
 ]);
 
 
@@ -3258,7 +3258,7 @@ const RelicSage = new NPC('Relic Stone Sage', [
     'This stone has the power to cleanse and purify the spirits of Pokémon.',
     'If you train with your Pokémon, you will gain spiritual energy, or "Flow". You can use this Flow to purify your Pokémon.',
     'Purification will take more flow with each Pokémon you purify.',
-    'It\'s said that there is a Flute with a Time altering effect. Playing it might help purify your Pokémon a bit fast.',
+    'It\'s said that there is a Flute with a time-altering effect. Playing it might help purify your Pokémon a bit faster.',
     '<img src="./assets/images/status/shadow.svg" height="60px"/> <img src="./assets/images/arrow.svg" height="30px"/> <img src="./assets/images/status/purified.svg" height="60px"/>',
 ], {image: 'assets/images/npcs/Sage.png'});
 const GateonSailor = new NPC('Sailor', [
@@ -4310,7 +4310,7 @@ const HearthomeContestFan = new NPC('Contest Fan', [
 const HearthomeTrophyGardenOwner = new NPC('Mr. Backlot', [
     'Greetings trainer! I own the Trophy Garden down south!',
     'Every day I bring in different Pokémon for trainers to catch. Some of them are extremely rare! I just love watching trainers catching Pokémon in my garden.',
-    'I make sure the experience is perfectly trailored to each individual trainer. I only ever bring in Pokémon that the trainer already owns. Hunting familiar prey, as it were. Oh it\'s so exciting!',
+    'I make sure the experience is perfectly tailored to each individual trainer. I only ever bring in Pokémon that the trainer already owns. Hunting familiar prey, as it were. Oh it\'s so exciting!',
     'Hm? You want to know what the point of that is? Well, some trainers really like to catch the same Pokémon over and over again. Maybe, some day, you\'ll find a reason to want to do that too.',
 ], {image: 'assets/images/npcs/Gentleman (Gen 4).png'});
 
@@ -7901,8 +7901,8 @@ const BattleTreeBlue = new NPC('Blue', [
     'We just planted this sapling here. Maybe it will grow into something great some day.',
 ], {image: 'assets/images/npcs/Blue-masters.png'});
 const MimikyuTrainer = new NPC('Mimikyu trainer', [
-    'Mimikyu really cares about it\'s costume.',
-    'The costume often gets busted on battles. It will then spend all night patching it. Poor guy...',
+    'Mimikyu really cares about its costume.',
+    'The costume often gets busted in battles. It will then spend all night patching it. Poor thing...',
     'If you defeat enough Mimikyu, you might find one with a busted costume roaming around.',
     'But please leave it alone! It has been through too much already!',
 ]);
